@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% block title%}{{title}}{% endblock %}
+{% block content %}
+	<h1>
+欢迎<d style="color: red;">光</d>临
+	</h1>
+	<div class="container-fluid">
+	<div class="row-fluid">
+		<div class="span12">
+	<ul>
+		{% for content,link in content_list.items %}
+		<li>
+			
+			<a href= {{link}}>{{content}}</a>
+		</li>
+		{% empty %}
+		<li>
+			the list is empty
+		</li>
+		{% endfor %}
+	</ul>
+		</div>
+	</div>
+	<h4>当前路径：{{ request.path }}</h4>
+	<h4>当前用户：{{ request.user }}</h4>
+	<h4>当前GET参数：{{ request.GET.urlencode }}</h4>
+</div>
+{% endblock %}
+
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title> 模板中获取相应的URL - 自强学堂</title>
+</head>
+<body>
+<div>
+
+
+
+计算 3 + 4：<br>
+1. 用<span style="color:red;">{<span>% url 'add' %</span>}?a=3&b=4</span> 可以获取到链接： 
+
+<a href="{% url 'add' %}?a=3&b=4">add</a><br>
+
+2. 用<span style="color:red;">{<span>% url 'add' 3 4 %</span>}</span> 可以获取到链接： 
+
+<a href="{% url 'add2' 3 4 %}">add2</a><br>
+
+
+<pre>
+# 看一下 urls.py 中的每一条对应的 name
+# urls.py
+
+urlpatterns = patterns('',
+    # Examples:
+    url(r'^add/$', 'calc.views.add', name='add'),
+    url(r'^add/(\d+)/(\d+)/$', 'calc.views.add2', name='add2'),
+    # url(r'^blog/', include('blog.urls')),
+
+    url(r'^admin/', include(admin.site.urls)),
+)
+</pre>
+
+
+</div>
+</body>
+</html>
